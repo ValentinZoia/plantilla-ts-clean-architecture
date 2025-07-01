@@ -5,8 +5,17 @@ Este repositorio es una plantilla para proyectos que utilizen Nodejs + Express +
 
 ## 🛠️ Tecnologías
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [TSX](https://github.com/esbuild-kit/tsx) (para ejecutar archivos `.ts` sin compilarlos manualmente)
+<div align="center"  >
+            <img src="https://skillicons.dev/icons?i=typescript" />
+              </br>
+            <img src="https://skillicons.dev/icons?i=nodejs,express" />
+            </br>
+           
+             
+             
+             
+            
+</div>
 
 ---
 
