@@ -6,10 +6,8 @@ Este repositorio es una plantilla para proyectos que utilizen Nodejs + Express +
 ## 🛠️ Tecnologías
 
 <div align="center"  >
-            <img src="https://skillicons.dev/icons?i=typescript" />
-              </br>
-            <img src="https://skillicons.dev/icons?i=nodejs,express" />
-            </br>
+            <img src="https://skillicons.dev/icons?i=typescript,nodejs,express" />
+           
            
              
              
