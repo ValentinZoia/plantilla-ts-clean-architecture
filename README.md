@@ -44,7 +44,51 @@
    ```
 
 ## 🏗 Estructura del Proyecto
-Hay muchas formas de organizar un proyecto usando Clean Architecture. La mejor para mi es en un primer nivel separar por Dominio (quien eres: User, Product, Order, etc). Y por dentro de cada una separar por capas (Domain, Application, Infrastructure, Presentation). Esta forma de estructurar aporta mucha mas semantica de negocio y hace que todo escale mucho mejor y sea mas facil de mantener. Tendremos tantas carpetas a primer nivel, como entidades, como conceptos tengamos en nuestro negocio. Si queremos hacer una nueva feature para algo de usuarios por ejemplo, sabemos que todo lo que tenemos que tocar está dentro de la carpeta User, sin estropear o marearme con otros archivos. Por otro lado , una mala practica seria tener todo separado por las capas(Domain, Application, Infrastructure, Presentation) y dentro de ellas lo que corresponde para User, Product, etc. Seria mas engorrozo trabajar sobre eso, y tendriamos muchos archivos dentro de cada carpeta que podrian marearnos.
+Hay muchas formas de organizar un proyecto usando Clean Architecture. La mejor para mi es en un primer nivel separar por Dominio (quien eres: User, Product, Order, etc). Y por dentro de cada una separar por capas (Domain, Application, Infrastructure, Presentation). Esta forma de estructurar aporta mucha mas semantica de negocio y hace que todo escale mucho mejor y sea mas facil de mantener. Tendremos tantas carpetas a primer nivel, como entidades, como conceptos tengamos en nuestro negocio. Si queremos hacer una nueva feature para algo de usuarios por ejemplo, sabemos que todo lo que tenemos que tocar está dentro de la carpeta User, sin marearte o entrar en conflicto con otros archivos. Por otro lado , una mala practica seria tener todo separado por las capas(Domain, Application, Infrastructure, Presentation) y dentro de ellas lo que corresponde para User, Product, etc. Seria mas engorrozo trabajar sobre eso, y tendriamos muchos archivos dentro de cada carpeta que podrian marearnos.<br>
+Acá dejo una imagen de como seria la forma correcta, en este caso de ejemplo tenemos dos dominios, User y Product.
+![Diagrama-capas](https://i.imgur.com/LCeSxUK.jpeg)
+<br>
+```bash
+src/
+│
+├── Users/
+│   ├── domain/           → Lógica de negocio pura (Entities, Value Objects, Interfaces, DTOs)
+│   │   ├── entities/
+│   │   │   └── User.ts
+│   │   ├── interfaces/
+│   │   │   └── IUserRepository.ts
+│   │   ├── value-objects/
+│   │   │   └── UserId.ts
+│   │   └── dtos/
+│   │       └── UserDto.ts 
+│   │
+│   ├── application/      →Services o  Casos de uso (Commands, Queries, Use Cases)
+│   │   └── services/
+│   │       └── CreateUserService.ts
+│   │
+│   ├── infrastructure/    → Implementaciones técnicas, persistencia de datos (DB, APIs externas)
+│   │   └── repositories/     (SQL, MongoDB, Prisma etc.)
+│   │       └── MySqlUserRepositoryImpl.ts 
+│   │
+│   └── presentation/              → Presentación - Entry Point (Controllers, Routes)
+│       ├── controllers/
+│       │   └── UserController.ts
+│       └── routes/
+│           └── UserRoute.ts
+│
+├── Products/            → Misma estructura que Users
+│   ├── domain/
+│   ├── application/
+│   ├── infrastructure/
+│   └── presentation/
+│
+└── Shared/              → Utilidades comunes
+    ├── domain/
+    ├── application/
+    ├── infrastructure/
+    └── presentation/
+
+   ```
 
 
 ## Tecnologías Utilizadas
