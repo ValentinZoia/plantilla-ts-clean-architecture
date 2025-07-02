@@ -70,7 +70,7 @@ src/
 │   │   └── repositories/     (SQL, MongoDB, Prisma etc.)
 │   │       └── MySqlUserRepositoryImpl.ts 
 │   │
-│   └── presentation/              → Presentación - Entry Point (Controllers, Routes)
+│   └── presentation/              → Presentación - Entry Point (API Endpoints - Controllers, Routes)
 │       ├── controllers/
 │       │   └── UserController.ts
 │       └── routes/
